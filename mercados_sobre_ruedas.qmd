@@ -1,0 +1,125 @@
+---
+title: "Mercados Sobre Ruedas"
+---
+
+```{r}
+pacman::p_load(dplyr,
+               sf,
+               here,
+               ggplot2,
+               leaflet)
+```
+
+## Overview
+
+What we want to learn?
+
+-   mercados sobre ruedas por alcaldia
+
+-   mercados sobre ruedas por colonia
+
+-   zoom plot mercado sobre ruedas por alcadia y colonia
+
+-   dias de operacion mas comunes
+
+-   
+
+### Read GeoJson with SF
+
+Its the most updated file in the page. This year!
+
+```{r}
+spatial_df <- st_read("Data Mercados Sobre Ruedas/mercados-sobre-ruedas.json")
+```
+
+## Map data SF
+
+```{r}
+# get polygon cdmx and alcaldias and project spatial df to their coordinate system
+
+# Get alcaldia / municipio data
+alcadias_mx_city <- st_read(
+  here("Geometries CDMX",
+       "09mun.shp")
+) |> 
+  select(
+    NOMGEO
+  )
+
+```
+
+```{r}
+projected_spatial_df <- spatial_df |> 
+  st_transform(
+    st_crs(alcadias_mx_city)
+  )
+
+ggplot() + 
+  geom_sf(data = alcadias_mx_city) +
+  # gets you points but not cdmx shape
+  geom_sf(data = projected_spatial_df,
+          color = "forestgreen") +
+    ggplot2::theme_void()
+```
+
+## Map Data Leaflet
+
+```{r, eval = FALSE}
+
+# Leaflet requires particular projection
+leaflet_crs <- '+proj=longlat +datum=WGS84'
+
+projected_alcaldias_mx <- st_transform(alcadias_mx_city, leaflet_crs)
+
+leaflet(projected_alcaldias_mx) |> 
+  addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
+    opacity = 1.0, fillOpacity = 0.5,
+    highlightOptions = highlightOptions(color = "white", weight = 2,
+      bringToFront = TRUE)) |> 
+
+  addTiles()
+```
+
+
+```{r}
+# Leaflet requires particular projection
+leaflet_crs <- '+proj=longlat +datum=WGS84'
+
+projected_alcaldias_mx <- st_transform(alcadias_mx_city, leaflet_crs)
+
+
+greenLeafIcon <- makeIcon(
+  iconUrl = "marketicon.png",
+  iconWidth = 45, iconHeight = 45
+)
+
+# projected_spatial_df <- st_transform(spatial_df, 4326)
+
+spatial_df <- spatial_df |> 
+  mutate(
+    popup_text = glue::glue("Mercado Num:  {PUNTO}"),
+    leaflet_label = glue::glue_collapse(
+      c(
+      "<b>Alcaldía:</b> {Alcaldía}<br>",
+      "<b>Colonia:</b> {Colonia}<br>",
+      "<b>Dirección:</b> {Dirección}<br>",
+      "<b>Día de Operación:</b> {Día_Oper}<br>",
+      "<b>Ruta:</b> {Ruta}<br>"),
+      sep = " "
+    ) |> 
+      glue::glue()
+  )
+
+leaflet(projected_alcaldias_mx) |> 
+    addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
+    opacity = 1.0, fillOpacity = 0.5,
+    highlightOptions = highlightOptions(color = "white", weight = 2,
+      bringToFront = TRUE)) |>
+  addMarkers(lng = spatial_df$Coor_GeogX,
+             lat = spatial_df$Coor_GeogY,
+             popup = spatial_df$leaflet_label,
+             label = spatial_df$popup_text,
+             icon = greenLeafIcon) |> 
+  addTiles()
+```
+

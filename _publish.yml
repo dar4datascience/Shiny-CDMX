@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 4fcd363a-14a0-492a-b6e6-691a38a499d4
+      url: 'https://dar4ds.quarto.pub/shiny-cdmx'

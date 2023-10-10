@@ -1,0 +1,15 @@
+---
+title: "Shiny CDMX"
+---
+
+READ ME
+
+-   [Mercados Sobre Ruedas](https://www.datos.cdmx.gob.mx/dataset/mercados-sobre-ruedas)
+
+-   Puestos de Tacos (OSM vs DENUE)?
+
+-   Green Areas ...... (OSM vs Registro Gob)
+
+```{r}
+1 + 1
+```

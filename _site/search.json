@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shiny CDMX",
+    "section": "",
+    "text": "READ ME\n\nMercados Sobre Ruedas\nPuestos de Tacos (OSM vs DENUE)?\nGreen Areas …… (OSM vs Registro Gob)\n\n\n\n[1] 2"
+  },
+  {
+    "objectID": "mercados_sobre_ruedas.html",
+    "href": "mercados_sobre_ruedas.html",
+    "title": "Mercados Sobre Ruedas",
+    "section": "",
+    "text": "What we want to learn?\n\nmercados sobre ruedas por alcaldia\nmercados sobre ruedas por colonia\nzoom plot mercado sobre ruedas por alcadia y colonia\ndias de operacion mas comunes\n\n\n\n\nIts the most updated file in the page. This year!\n\n\nReading layer `mercados-sobre-ruedas' from data source \n  `/home/duque/Documents/Shiny CDMX/Data Mercados Sobre Ruedas/mercados-sobre-ruedas.json' \n  using driver `GeoJSON'\nSimple feature collection with 51 features and 12 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -99.23298 ymin: 19.28202 xmax: -99.02397 ymax: 19.52474\nGeodetic CRS:  WGS 84"
+  },
+  {
+    "objectID": "mercados_sobre_ruedas.html#overview",
+    "href": "mercados_sobre_ruedas.html#overview",
+    "title": "Mercados Sobre Ruedas",
+    "section": "",
+    "text": "What we want to learn?\n\nmercados sobre ruedas por alcaldia\nmercados sobre ruedas por colonia\nzoom plot mercado sobre ruedas por alcadia y colonia\ndias de operacion mas comunes\n\n\n\n\nIts the most updated file in the page. This year!\n\n\nReading layer `mercados-sobre-ruedas' from data source \n  `/home/duque/Documents/Shiny CDMX/Data Mercados Sobre Ruedas/mercados-sobre-ruedas.json' \n  using driver `GeoJSON'\nSimple feature collection with 51 features and 12 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -99.23298 ymin: 19.28202 xmax: -99.02397 ymax: 19.52474\nGeodetic CRS:  WGS 84"
+  },
+  {
+    "objectID": "mercados_sobre_ruedas.html#map-data-sf",
+    "href": "mercados_sobre_ruedas.html#map-data-sf",
+    "title": "Mercados Sobre Ruedas",
+    "section": "Map data SF",
+    "text": "Map data SF\n\n\nReading layer `09mun' from data source \n  `/home/duque/Documents/Shiny CDMX/Geometries CDMX/09mun.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 16 features and 4 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 2776218 ymin: 786788.9 xmax: 2820850 ymax: 846749.5\nProjected CRS: MEXICO_ITRF_2008_LCC"
+  },
+  {
+    "objectID": "mercados_sobre_ruedas.html#map-data-leaflet",
+    "href": "mercados_sobre_ruedas.html#map-data-leaflet",
+    "title": "Mercados Sobre Ruedas",
+    "section": "Map Data Leaflet",
+    "text": "Map Data Leaflet"
+  }
+]
